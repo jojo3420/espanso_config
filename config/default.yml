@@ -20,9 +20,6 @@
 # You can also disable the toggle key completely with
 # toggle_key: OFF
 
-# Open the Espanso Search UI with Command + Space.
-search_shortcut: CMD+SPACE
-
 # --- Injection Backend
 
 # Espanso supports multiple ways of injecting text into applications. Each of
@@ -53,3 +50,5 @@ search_shortcut: CMD+SPACE
 # max_regex_buffer_size: 30
 
 # For a list of all the available options, visit the official docs at: https://espanso.org/docs/
+
+search_shortcut: CMD+SPACE
