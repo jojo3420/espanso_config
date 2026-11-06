@@ -58,6 +58,15 @@
 - `:실측`: 판단이 기대는 가정을 꺼내 실측한 것과 추정을 나누고, 추정은 코드-로그-실행 결과-화면-공식 문서로 확인한 뒤 `가정 → 실측 방법 → 실측 결과 → 결정` 순서로 정리한다. 확인할 수 없으면 `확인 필요`로 표시한다.
 - macOS 텍스트 대치용 가져오기 파일: [macos/measure-check.plist](macos/measure-check.plist).
 
+## UI 디자인 4종
+
+Claude Code 플러그인 taste-skill·impeccable·hallmark·frontend-design이 설치돼 있어야 한다.
+
+- 새로 만들기: `:ui방향`(만들기 전 방향 잡기. 웹사이트는 taste-skill, 앱 화면은 impeccable `shape`) → `:ui편한화면`(frontend-design으로 눈이 편하고 쓰기 편한 화면 만들기).
+- 이미 만든 화면: `:ui다듬기`(impeccable `audit`·`critique` 점검 후 `polish`), `:ui티제거`(Hallmark `audit` 후 polish 깊이 `redesign`으로 AI 티만 제거).
+- 네 단축어 모두 끝의 `대상:` 뒤에 파일 경로나 URL을 적는다. 방향 결정·수정 전에 사용자 확인을 받는다.
+- macOS 텍스트 대치용 가져오기 파일: [macos/ui-design.plist](macos/ui-design.plist)(4개 항목).
+
 ## 트리거 겹침 주의
 
 - Espanso는 입력 끝이 트리거와 같아지는 순간 바로 펼친다. 그래서 `:설계`처럼 다른 트리거(`:설계리뷰`, `:설계병목분석`)의 앞부분인 트리거는 `word: true`로 두어 뒤에 공백·엔터를 쳤을 때만 펼친다.
