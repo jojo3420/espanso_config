@@ -18,7 +18,7 @@
 전체 10줄 이내로 쓰고, 증거가 없으면 완료·달성으로 판정하지 마. 확인하지 못한 내용은 추측하지 말고 `확인 필요`로 표시해줘.
 이번에는 보고만 하고 새 작업은 시작하지 마.</string>
 		<key>shortcut</key>
-		<string>:현황</string>
+		<string>:세션현황</string>
 	</dict>
 </array>
 </plist>
