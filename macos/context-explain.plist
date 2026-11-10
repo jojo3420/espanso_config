@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>phrase</key>
+		<string>맥락을 이해하지 못했어. 방금 내용을 이 대화를 처음 보는 사람도 이해할 수 있게 다시 설명해줘.
+- 어떤 이슈인지 한 문장으로 먼저 말하고, 이어서 배경(무엇을 하다가 왜 생겼는지)과 지금 상태를 설명해줘.
+- 전문용어·약어·파일명·코드명은 처음 나올 때 쉬운 말로 풀고, 앞 대화를 봤다는 전제로 건너뛰지 마.
+- 확인된 사실과 추측을 나누고, 마지막에 내가 알아야 할 것이나 정해야 할 것을 한 줄로 알려줘.
+- 설명만 하고, 내가 이해했다고 말하기 전에는 새 작업을 진행하지 마.</string>
+		<key>shortcut</key>
+		<string>:맥락설명</string>
+	</dict>
+</array>
+</plist>
