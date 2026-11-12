@@ -9,7 +9,7 @@
 ## 등록 목록
 
 - : : `:세줄요약`, `:문제분해`, `:목표성과`, `:적대적리뷰`(`:적대적_결과물_리뷰`), `:설계리뷰`(`:적대적_설계_리뷰`, `:설계`), `:브레인스토밍`, `:의도확인`, `:맥락파악`, `:맥락설명`, `:플랜점검`, `:빈틈점검`, `:pdca-do-handoff`, `:외부리뷰`, `:나복귀`, `:세션마무리`, `:전체우선`, `:선택결과`, `:후속점검`, `:반복정리`, `:pdca현황`, `:설계병목분석`, `:준비단도리`, `:계획정리단도리`, `:단속단도리`, `:잡도리`, `:치트키`, `:현실구멍`, `:전달초안`, `:다시해봐`, `:캡처확인`, `:세션현황`(`:현황`), `:실측`, `:간결하게`, `:ui방향`, `:ui편한화면`, `:ui다듬기`, `:ui티제거`, `:list`
-- ; : `;결과검증`, `;디테일`, `;원인파악`, `;문제해결`, `;실행병목분석`, `;코드리뷰`(`;적대적_코드_리뷰`), `;QA`, `;문제발견`, `;pdca:goal`
+- ; : `;결과검증`, `;디테일`, `;원인파악`, `;문제해결`, `;실행병목분석`, `;코드리뷰`(`;적대적_코드_리뷰`), `;QA`, `;문제발견`, `;pdca:goal`, `;dig`
 
 - 괄호 안 이름은 같은 문구를 펼치는 별칭이다. macOS 텍스트 대치에도 같은 단축어·문구를 등록해 둔다(2026-11-11 전수 동기화).
 
@@ -112,5 +112,29 @@
 - [macos/bottleneck-check.plist](macos/bottleneck-check.plist)는 `:설계병목분석` 한 항목을 담은 macOS 텍스트 대치 가져오기 파일이며, Espanso와 동일한 분석 문구를 포함한다.
 - GitHub에서 파일을 내려받은 뒤 **시스템 설정 → 키보드 → 텍스트 대치** 창에 드래그하고 **완료**를 누른다.
 - 가져온 뒤 `:설계병목분석`을 입력해 설계·아키텍처의 잠재 병목 분석 문구와 줄바꿈을 확인한다. 실제 Mac에서의 가져오기와 입력 동작은 별도 확인이 필요하다.
+
+### `;dig` 추가하기
+
+- [macos/dig.plist](macos/dig.plist)는 `;dig`(전후 맥락 파악 → 증거로 사실 관계 조사) 한 항목을 담은 가져오기 파일이다.
+
+### macOS 텍스트 대치에 깔끔하게 등록하는 방법
+
+```
+match/base.yml ──▶ plist 생성(plistlib) ──▶ plutil -lint ──▶ 텍스트 대치 창에 드래그 ──▶ 완료 ──▶ DB 읽기 검증
+```
+
+- 정본은 `match/base.yml`이다. plist는 손으로 옮겨 적지 말고 YAML에서 생성해 문구 차이와 XML 이스케이프(`&`, `<`) 실수를 막는다.
+  ```sh
+  python3 -c "import yaml,plistlib,sys;t=sys.argv[1];m=[x for x in yaml.safe_load(open('match/base.yml'))['matches'] if x.get('trigger')==t][0];plistlib.dump([{'phrase':m['replace'],'shortcut':t}],open(sys.argv[2],'wb'))" ';dig' macos/dig.plist
+  plutil -lint macos/dig.plist
+  ```
+- 가져오기 전에 같은 단축어가 이미 있는지 확인한다. 있으면 텍스트 대치 창에서 먼저 지운 뒤 가져온다(중복 항목 방지).
+  ```sh
+  sqlite3 -readonly ~/Library/KeyboardServices/TextReplacements.db "select ZSHORTCUT from ZTEXTREPLACEMENTENTRY where ZSHORTCUT=';dig' and ZWASDELETED=0;"
+  ```
+- 등록은 **시스템 설정 → 키보드 → 텍스트 대치…** 창에 plist를 드래그하고 **완료**를 누르는 Apple 공식 경로만 쓴다. 여러 줄 문구는 `+` 버튼으로 직접 입력하면 줄바꿈이 깨지기 쉽다.
+- `TextReplacements.db`에 직접 INSERT/UPDATE 하지 않는다. 앱 캐시와 iCloud 동기화가 덮어쓰거나 항목이 꼬일 수 있다. DB는 `-readonly`로 결과 확인에만 쓴다.
+- 가져온 뒤 같은 DB 조회로 행이 1개이고 문구가 plist와 같은지 확인하고, 실제 입력창에서 단축어를 쳐 줄바꿈까지 펼쳐지는지 본다.
+- 자동화 메모: 다른 앱 창 사이의 드래그는 창 기준 좌표 도구로는 실패할 수 있다. 화면 좌표 `CGEvent`(mouseDown → mouseDragged 반복 → mouseUp)로 Finder의 파일을 텍스트 대치 목록 위로 끌어 놓으면 된다(2026-11-12 `;dig` 등록에 사용).
 
 가져오기 절차: [Apple 공식 안내](https://support.apple.com/ko-kr/guide/mac-help/mchl2a7bd795/mac)
