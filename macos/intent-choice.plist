@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>phrase</key>
+		<string>이번 세션의 목표와 의도를 알려줘. 어떤 작업을 왜 하는지 구체적으로 설명하고, 이 작업의 중요도를 상/중/하로 알려줘.
+네가 이해한 내 의도와 핵심 요구사항, 최종 목표를 쉬운 말로 설명해줘.
+이번에는 이해한 내용과 꼭 필요한 확인 질문만 제시하고, 내가 확인하거나 수정하기 전에는 계획 변경이나 후속 작업을 진행하지 마.
+군더더기 없이 핵심만 간결하게 정리해.</string>
+		<key>shortcut</key>
+		<string>:의도확인</string>
+	</dict>
+	<dict>
+		<key>phrase</key>
+		<string>지금 제시한 선택지를 내 목표와 기존 결정에 맞춰 설명해줘.
+
+각 안에서 실제로 가능해지는 것, 남는 제약, 추가 작업과 비용, 나중에 바꾸기 어려운 점을 비교해줘.
+현재 작업의 구체적인 사례 하나에 각 선택지를 적용해 결과 차이를 보여줘.
+
+목표와 충돌하거나 필수 요구사항이 빠지는 안을 짚고, 추천 하나와 그 추천이 달라지는 조건을 알려줘.
+이번에는 선택을 돕는 설명만 해줘.
+군더더기 없이 핵심만 간결하게 정리해.</string>
+		<key>shortcut</key>
+		<string>:선택결과</string>
+	</dict>
+</array>
+</plist>
